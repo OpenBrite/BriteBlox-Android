@@ -28,5 +28,9 @@
     <string name="pickStats">Picked: 1, Missed: 0, Left to Pick: 0</string>
     <string name="userName">Test</string>
     <string name="truckId">5</string>
-    
+    <string name="continous">Continuous</string>
+    <string name="connectfirst">Connect to Bluetooth Serial</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="entermessage">Enter your message below:</string>
+    <string name="sendout">Send</string>
 </resources>

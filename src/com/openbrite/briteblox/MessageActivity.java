@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -76,6 +77,7 @@ public class MessageActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_message);
 		
 		connectBluetooth = (Button) findViewById(R.id.button1);
@@ -116,6 +118,7 @@ public class MessageActivity extends Activity {
 					MyApp.mLogService.stop();
 					connectBluetooth.setText("Connect to Bluetooth");
 				} else {
+                    //connectBluetooth.setBackgroundColor(956397);
 					Intent intent = new Intent(MessageActivity.this, com.openbrite.briteblox.DeviceListActivity.class);
 					startActivityForResult(intent, DEVICE_SELECT);
 				}
@@ -129,7 +132,9 @@ public class MessageActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				if(started) {
+                    //connectBluetooth.setBackgroundColor(285212672);
 					DirectDrive.writeSingle( ((EditText) findViewById(R.id.editText1)).getText().toString() );
+                    //connectBluetooth.setBackgroundColor(956397);
 				}
 			}			
 		});
@@ -151,7 +156,7 @@ public class MessageActivity extends Activity {
 				//setupLog();
 			} else {
 				System.out.println("M360PICKUPMGR BT not enabled");
-				Toast.makeText(this, 0x7f040004, 0).show();
+				Toast.makeText(this, "0x7f040004", Toast.LENGTH_SHORT).show();
 				finish();
 			}
 		} else if (reqCode == 5) {
@@ -177,7 +182,7 @@ public class MessageActivity extends Activity {
     /**
      * Called when a menu item is selected.
      */
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	// Get the menu item selected
         switch (item.getItemId()) {
@@ -188,5 +193,5 @@ public class MessageActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
